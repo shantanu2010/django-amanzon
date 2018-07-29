@@ -35,7 +35,7 @@ def order_create(request):
             cart.clear()
 
             mail=order.email
-            phone=order.phone_no
+            phone=order.p_no
 
             sender(mail,order.id)
             print("mail sent")

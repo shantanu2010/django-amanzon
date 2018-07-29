@@ -7,7 +7,7 @@ from shop.models import Product
 class Order(models.Model):
     u_name = models.CharField(max_length=60)
     email = models.EmailField()
-    phone_no=models.CharField(max_length=120)
+    p_no=models.CharField(max_length=120)
     address = models.CharField(max_length=150)
     created = models.DateTimeField(auto_now_add=True)
 
