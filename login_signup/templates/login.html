@@ -1,0 +1,14 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1><b>Login</b></h1>
+        <form method = "post">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <hr>
+        <input type="submit" class="btn btn-success" value = "Login"/>
+        <a href="/signup/" class="btn btn-success">Signup</a>
+        </form>
+    </div>
+{% endblock %}

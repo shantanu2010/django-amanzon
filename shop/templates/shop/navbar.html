@@ -1,0 +1,47 @@
+{% load static %}
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0px; background-color: #1c1c1c;">
+
+  <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{% url 'shop:product_list' %}" style="color: #ffffff">My Online Store</a>
+      </div>
+
+    <div class="col-sm-5 col-sm-offset-1" style="margin:8px">
+      <div class="form-group">
+        <input id="txtbox" class="form-control" oninput="search()" type="text" placeholder="Search">
+
+      </div>
+      <div class="outersearch">
+        <div class="searchresults" id="mysearch"></div>
+      </div>
+      <div class="container">
+        <p id="searchresults"></p>
+      </div>
+    </div>
+
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <li><a href="{% url 'wannaprime:sell_prime' %}" style="color: #ffffff">Try Prime</a></li>
+      <li><a href="{% url "shop:add_product" 1 %}" style="color: #ffffff">Wanna Sell?</a></li>
+      <li><a href="{% url 'customerservice:cust_create' %}" style="color: #ffffff">Customer Service</a></li>
+      <li><a href="{% url 'wishlist:wishlistitems' %}" style="color: #ffffff">WishList</a></li>
+        {% if request.user.is_authenticated %}
+        <li><a href="{% url 'login_signup:logout' %}" style="color: #ffffff">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login_signup:login' %}" style="color: #ffffff">Sign in</a></li>
+        <li><a href="{% url 'login_signup:signup' %}" style="color: #ffffff">Sign up</a></li>
+    </ul>
+         {% endif %}
+    </ul>
+
+    </div>
+<br/>
+<br/>
+</nav>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

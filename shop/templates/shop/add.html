@@ -1,0 +1,13 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1><b>Add Product</b></h1>
+        <form method = "post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <hr>
+        <input type="submit" class="btn btn-success" value = "Submit"/>
+        </form>
+    </div>
+{% endblock %}

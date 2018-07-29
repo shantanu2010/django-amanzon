@@ -1,0 +1,27 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+{% if object %}
+<center><h4>YOUR-WISHLIST</h4></center>
+<div class="mdl-grid">
+    {% for obj in object %}
+    <div class="mdl-cell mdl-cell--4-col">
+        <div class="mdl-card" style="width:240px;text-align:center;">
+            <a href="{% url 'shop:product_detail' obj.product.id obj.product.slug %}">
+            <img src="{{obj.image.url}}" height="150px" style="margin: auto; padding-top:12px;"/>
+            </a>
+            <div>
+                <h2>{{obj.item}}</h2>
+                <a class="btn btn-danger"
+                   href="{% url 'wishlist:deletewishitem' obj.id %}">Delete
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<center><h4>Your WishList Is Empty</h4></center>
+{% endif %}
+{% endblock %}

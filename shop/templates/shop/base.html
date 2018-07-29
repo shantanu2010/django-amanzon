@@ -1,0 +1,95 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}On-line Shop{% endblock %}</title>
+    <link rel = "stylesheet" href = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href = "{% static 'css/custom.css' %}">
+	<link rel="stylesheet" href = "{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href = "{% static 'css/owl.theme.default.min.css' %}">
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+{% include 'shop/navbar.html' %}
+<br/>
+<div class="container">
+    <div class="row" style="margin-top: 6%">
+         <button class="btn btn-primary pull-right">
+            {% with totail_items=cart|length %}
+                {% if cart|length > 0 %}
+                    My Shopping Order:
+                    <a href="{% url "cart:cart_detail" %}" style="color: #ffffff">
+                        {{ totail_items }} item {{ totail_items|pluralize }},₹{{ cart.get_total_price }}
+                    </a>
+                    {% else %}
+                    Your cart is empty.
+                {% endif %}
+            {% endwith %}
+         </button>
+    </div>
+</div>
+<br/>
+<br/>
+{% block content %}
+
+
+{% endblock %}
+
+<script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/baseSearch.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/jquery.elevatezoom.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/jquery.elevateZoom-3.0.8.min.js' %}" type="text/javascript"></script>
+<script src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+
+
+<script>
+	var owl = $('.owl-carousel');
+    owl.owlCarousel({
+        nav:true,
+        margin:10,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            960:{
+                items:5
+            },
+            1200:{
+                items:6
+            }
+
+        }
+    });
+
+    $(".shantanu").elevateZoom({
+			tint:true, tintColour:'#F90', tintOpacity:0.5});
+</script>
+
+<script>
+		$('.cd100').countdown100({
+			/*Set Endtime here*/
+			/*Endtime must be > current time*/
+			endtimeYear: 0,
+			endtimeMonth: 0,
+			endtimeDate: 35,
+			endtimeHours: 18,
+			endtimeMinutes: 0,
+			endtimeSeconds: 0,
+			timeZone: ""
+			// ex:  timeZone: "America/New_York"
+			//go to " http://momentjs.com/timezone/ " to get timezone
+		});
+	</script>
+
+</body>
+</html>

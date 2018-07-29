@@ -1,0 +1,76 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    {% if category %}{{ category.name }} {% else %} Products {% endif %}
+{% endblock %}
+
+{% block content %}
+	<br/>
+
+	<h1 style="float:left">&nbspBooks</h1>
+	<a href="{{ categories.0.get_absolute_url }}" class="btn btn-success" style="float:right">All {{ categories.0.name }}</a>&nbsp
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<div class="owl-carousel owl-theme">
+
+		{% for product in products %}
+
+			{% if product.category == categories.0 %}
+				<div class="item"><a href="{{ product.get_absolute_url }}"><img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 130px; width: auto"></a></div>
+			{% endif %}
+		{% endfor %}
+
+	</div>
+
+	<br/>
+	<br/>
+
+	<br/>
+	<br/>
+
+	<h1 style="flaot:left">&nbspMobiles</h1>
+	<a href="{{ categories.1.get_absolute_url }}" class="btn btn-success" style="float:right">All {{ categories.1.name }}</a>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<div class="owl-carousel owl-theme">
+
+		{% for product in products %}
+
+			{% if product.category == categories.1 %}
+				<div class="item"><a href="{{ product.get_absolute_url }}"><img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 130px; width: auto"></a></div>
+			{% endif %}
+		{% endfor %}
+
+	</div>
+
+	<br/>
+	<br/>
+	<br/>
+
+	<br/>
+	<br/>
+
+	<h1>&nbspWhat Others Are Buying Now</h1>
+	<br/>
+	<div class="owl-carousel owl-theme">
+
+		{% for product in frequents %}
+
+
+			<div class="item"><a href="{{ product.get_absolute_url }}"><img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 130px; width: auto"></a></div>
+
+		{% endfor %}
+
+	</div>
+
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+
+{% endblock %}
