@@ -25,7 +25,7 @@ SECRET_KEY = 'funuf6euv&_--&#t6+5)*7^*kr%!a1tsr-gg2i(6&9miz=s)ja'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shantanuonlinestore.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
