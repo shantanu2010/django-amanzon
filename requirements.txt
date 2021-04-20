@@ -34,7 +34,7 @@ pipenv==2018.7.1
 prompt-toolkit==1.0.15
 psutil==5.4.6
 psycopg2==2.7.5
-py==1.5.2
+py==1.10.0
 Pygments==2.2.0
 PyJWT==1.6.4
 PyPDF2==1.26.0
